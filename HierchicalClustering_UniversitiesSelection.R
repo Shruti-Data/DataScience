@@ -1,0 +1,7 @@
+Universities<-scale(Universities[,2:7])
+d<-dist(Universities,method="euclidean")
+fit<-hclust(d,method="centroid")
+plot(fit)
+groups<-cutree(fit,k=4)
+rect.hclust(fit,k=4,border="red")
+clusters=data.frame('Uni'=Universities1[,1],'Cluster'=groups)
